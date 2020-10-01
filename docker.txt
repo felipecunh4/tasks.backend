@@ -1,0 +1,10 @@
+docker pull postgres
+
+docker run --name postgres-task -e POSTGRES_PASSWORD=passw0rd -p 5432:5432 -d postgres
+
+docker exec -it postgres-task bash
+
+psql -U postgres
+
+CREATE DATABASE tasks;
+
