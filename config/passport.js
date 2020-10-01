@@ -5,7 +5,7 @@ const { Strategy, ExtractJwt } = passportJwt;
 
 module.exports = (app) => {
   const params = {
-    secretKey: authSecret,
+    secretOrKey: authSecret,
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   };
 
@@ -21,7 +21,7 @@ module.exports = (app) => {
           done(null, false);
         }
       })
-      .catch((err) => done(err, null));
+      .catch((err) => done(err, false));
   });
 
   passport.use(strategy);

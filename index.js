@@ -9,10 +9,6 @@ consign()
   .then("./config/routes.js")
   .into(app);
 
-app.get("/", (req, res) => {
-  res.status(200).send("Backend");
-});
-
 app.db = db;
 
 app.listen(3000, () => {
